@@ -10,3 +10,4 @@ RegisterNUICallback('selectJob', function(data, cb)
 end)
 -- NUI: abrir/cerrar
 local uiOpen = false
+
