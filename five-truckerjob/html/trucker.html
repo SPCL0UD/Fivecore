@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trucker Job</title>
+  <link rel="stylesheet" href="trucker.css" />
+</head>
+<body>
+  <div id="truckerUI" class="hidden">
+    <!-- HEADER -->
+    <div class="tk-header">
+      <div class="tk-left">
+        <div class="tk-title">Trabajo de Camionero</div>
+        <div class="tk-sub">Legal e Ilegal con niveles y grupos</div>
+      </div>
+      <div class="tk-right">
+        <div class="xp-wrap">
+          <div class="xp-info">
+            <span>Nivel <b id="tkLevel">1</b></span>
+            <span>XP <b id="tkXP">0</b>/<b id="tkNextXP">100</b></span>
+          </div>
+          <div class="xp-bar"><div class="xp-fill" id="tkXPFill" style="width:0%;"></div></div>
+        </div>
+        <button id="tkClose" class="btn ghost">Cerrar ✖</button>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-hubs">Hubs</button>
+      <button class="tab-btn" data-tab="tab-active">Trabajo activo</button>
+      <button class="tab-btn" data-tab="tab-group">Grupo</button>
+    </div>
+
+    <div class="tabs-content">
+      <!-- Hubs -->
+      <div id="tab-hubs" class="tab-panel active">
+        <div class="hubs-layout">
+          <div class="hubs-list" id="tkHubsList">
+            <!-- hubs render -->
+          </div>
+          <div class="cargo-panel">
+            <div class="cargo-head">
+              <div class="cargo-title" id="tkHubTitle">Selecciona un hub</div>
+              <div class="cargo-meta">
+                <span class="pill" id="tkHubType">—</span>
+                <span class="pill" id="tkHubCoords">—</span>
+              </div>
+            </div>
+            <div class="cargo-levels">
+              <!-- niveles render -->
+              <div id="tkLevelsRow" class="levels-row"></div>
+            </div>
+            <div class="cargo-list" id="tkCargoList">
+              <!-- cargos render -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trabajo activo -->
+      <div id="tab-active" class="tab-panel">
+        <div class="active-wrap">
+          <div class="active-top">
+            <div class="active-title" id="tkActiveCargo">Sin trabajo activo</div>
+            <div class="active-meta">
+              <span class="pill" id="tkActiveType">—</span>
+              <span class="pill" id="tkActivePay">Pago: $0</span>
+              <span class="pill" id="tkActiveRent">Alquiler: $0</span>
+            </div>
+          </div>
+
+          <div class="stage-wrap">
+            <div class="stage-card">
+              <div class="stage-title">Carga</div>
+              <div class="progress">
+                <div class="progress-fill" id="tkLoadFill" style="width:0%;"></div>
+              </div>
+              <div class="stage-actions">
+                <button id="tkStartLoad" class="btn">Comenzar carga</button>
+                <button id="tkLoadTick" class="btn ghost">Cargar siguiente</button>
+              </div>
+            </div>
+
+            <div class="stage-card">
+              <div class="stage-title">Entrega</div>
+              <div class="progress">
+                <div class="progress-fill" id="tkDeliverFill" style="width:0%;"></div>
+              </div>
+              <div class="stage-actions">
+                <button id="tkFinishJob" class="btn success" disabled>Finalizar entrega</button>
+                <button id="tkCancelJob" class="btn danger">Cancelar trabajo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hint">Consejo: la carga puede ser grupal. Cada integrante suma progreso.</div>
+        </div>
+      </div>
+
+      <!-- Grupo -->
+      <div id="tab-group" class="tab-panel">
+        <div class="group-wrap">
+          <div class="group-left">
+            <div class="panel-title">Mi grupo</div>
+            <div class="group-list" id="tkGroupList">
+              <!-- miembros render -->
+            </div>
+            <div class="group-actions">
+              <button id="tkCreateGroup" class="btn">Crear grupo</button>
+              <button id="tkLeaveGroup" class="btn danger">Abandonar grupo</button>
+            </div>
+          </div>
+          <div class="group-right">
+            <div class="panel-title">Invitar cercano</div>
+            <div class="group-near">
+              <input id="tkInviteId" class="input" type="number" placeholder="ID jugador" />
+              <button id="tkInviteBtn" class="btn">Invitar</button>
+            </div>
+            <div class="hint">El trabajo ilegal solo está disponible para mafias/bandas aprobadas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="trucker.js"></script>
+</body>
+</html>

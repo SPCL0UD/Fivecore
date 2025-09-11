@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trabajo de Basurero</title>
+  <link rel="stylesheet" href="garbage.css" />
+</head>
+<body>
+  <div id="garbageUI" class="hidden">
+    <!-- HEADER -->
+    <div class="gb-header">
+      <div class="gb-left">
+        <div class="gb-title">Trabajo de Basurero</div>
+        <div class="gb-sub">Recoge la basura y llévala al vertedero</div>
+      </div>
+      <div class="gb-right">
+        <div class="xp-wrap">
+          <div class="xp-info">
+            <span>Nivel <b id="gbLevel">1</b></span>
+            <span>XP <b id="gbXP">0</b>/<b id="gbNextXP">100</b></span>
+          </div>
+          <div class="xp-bar"><div class="xp-fill" id="gbXPFill" style="width:0%;"></div></div>
+        </div>
+        <button id="gbClose" class="btn ghost">Cerrar ✖</button>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-deposits">Depósitos</button>
+      <button class="tab-btn" data-tab="tab-active">Trabajo activo</button>
+    </div>
+
+    <div class="tabs-content">
+      <!-- Depósitos -->
+      <div id="tab-deposits" class="tab-panel active">
+        <div class="dep-layout">
+          <div class="dep-list" id="gbDepositsList">
+            <!-- depósitos render -->
+          </div>
+          <div class="route-panel">
+            <div class="route-head">
+              <div class="route-title" id="gbDepositTitle">Selecciona un depósito</div>
+            </div>
+            <div class="route-levels" id="gbLevelsRow">
+              <!-- niveles render -->
+            </div>
+            <div class="route-list" id="gbRouteList">
+              <!-- rutas render -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trabajo activo -->
+      <div id="tab-active" class="tab-panel">
+        <div class="active-wrap">
+          <div class="active-top">
+            <div class="active-title" id="gbActiveRoute">Sin trabajo activo</div>
+            <div class="active-meta">
+              <span class="pill" id="gbActivePay">Pago: $0</span>
+              <span class="pill" id="gbActiveXP">XP: 0</span>
+            </div>
+          </div>
+
+          <div class="stage-wrap">
+            <div class="stage-card">
+              <div class="stage-title">Puntos recogidos</div>
+              <div class="progress">
+                <div class="progress-fill" id="gbPointsFill" style="width:0%;"></div>
+              </div>
+              <div class="stage-actions">
+                <button id="gbNextPoint" class="btn">Ir al siguiente punto</button>
+              </div>
+            </div>
+           <div class="stage-actions">
+           <button id="gbLoadBag" class="btn">Cargar bolsa</button>
+           </div>
+
+            <div class="stage-card">
+              <div class="stage-title">Vertedero</div>
+              <div class="progress">
+                <div class="progress-fill" id="gbDumpFill" style="width:0%;"></div>
+              </div>
+              <div class="stage-actions">
+                <button id="gbFinishJob" class="btn success" disabled>Finalizar trabajo</button>
+                <button id="gbCancelJob" class="btn danger">Cancelar trabajo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="hint">Recoge todas las bolsas antes de ir al vertedero.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="garbage.js"></script>
+</body>
+</html>

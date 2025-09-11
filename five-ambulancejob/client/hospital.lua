@@ -1,0 +1,8 @@
+RegisterNetEvent('ems:clientAdmit', function()
+  local cama = vector3(312.2, -581.9, 43.3)
+  SetEntityCoords(PlayerPedId(), cama.x, cama.y, cama.z)
+  FreezeEntityPosition(PlayerPedId(), true)
+  exports['progressbar']:Progress({label='Hospitalizado', duration=60000})
+  FreezeEntityPosition(PlayerPedId(), false)
+  SetEntityHealth(PlayerPedId(), 200)
+end)

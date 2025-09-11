@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trabajo de Taxi</title>
+  <link rel="stylesheet" href="taxi.css" />
+</head>
+<body>
+  <div id="taxiUI" class="hidden">
+    <div class="tx-header">
+      <div class="title">Trabajo de Taxi</div>
+      <button id="closeBtn" class="btn ghost">Cerrar ✖</button>
+    </div>
+
+    <div class="tx-stage" id="stageWaiting">
+      <p>Nivel actual: <b id="txNivel">1</b></p>
+      <div class="actions">
+        <button id="startJob" class="btn">Iniciar turno</button>
+        <button id="requestNPC" class="btn">Pedir cliente</button>
+      </div>
+    </div>
+
+    <div class="tx-stage hidden" id="stagePickup">
+      <p>Dirígete al punto para recoger al pasajero.</p>
+      <button id="pickupDone" class="btn">Pasajero a bordo</button>
+    </div>
+
+    <div class="tx-stage hidden" id="stageDropoff">
+      <p>Conduce al destino procurando evitar paparazzis y daños.</p>
+      <button id="dropoffDone" class="btn success">Finalizar viaje</button>
+    </div>
+<div id="meter" class="meter hidden">
+  <div class="row"><span>Base</span><b id="mBase">$0</b></div>
+  <div class="row"><span>Distancia</span><b id="mDist">$0 <small id="mKm">(0.00 km)</small></b></div>
+  <div class="row"><span>Tiempo</span><b id="mTime">$0 <small id="mMin">(0.0 min)</small></b></div>
+  <div class="row"><span>Propina</span><b id="mTip">$0</b></div>
+  <div class="row"><span>Penalización</span><b id="mPen">-$0</b></div>
+  <hr>
+  <div class="row total"><span>Total</span><b id="mTotal">$0</b></div>
+</div>
+    <button id="cancelJob" class="btn danger hidden">Cancelar turno</button>
+    <button id="restartJob" class="btn danger hidden">Reiniciar turno</button>
+    <button id="showMeter" class="btn info hidden">Ver cuenta</button>
+    <button id="showDamage" class="btn info hidden">Ver daños</button>
+    <button id="showTips" class="btn info hidden">Ver propinas</button>
+    <button id="showPenalties" class="btn info hidden">Ver penalizaciones</button>
+    <button id="showStats" class="btn info hidden">Ver estadísticas</button>
+    <button id="showLog" class="btn info hidden">Ver historial</button>
+    </div>
+    
+    <div id="damageBar" class="damage hidden">
+      <div class="label">Paparazzis</div>
+      <div class="bar"><div class="fill" id="damageFill" style="width:0%;"></div></div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+  <script src="taxi.js"></script>
+</body>
+</html>

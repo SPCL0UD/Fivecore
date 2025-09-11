@@ -1,0 +1,10 @@
+RegisterCommand('ems_monitor', function()
+  SetNuiFocus(true,true)
+  SendNUIMessage({ action='monitor:show', show=true })
+end)
+
+RegisterNUICallback('monitorClose', function(_, cb)
+  SetNuiFocus(false,false)
+  SendNUIMessage({ action='monitor:show', show=false })
+  cb('ok')
+end)

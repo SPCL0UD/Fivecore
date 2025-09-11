@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+}
+
+#hud {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.6);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  min-width: 120px;
+  justify-content: flex-start;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.money:hover {
+  transform: scale(1.05);
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.cash { border-left: 4px solid #4caf50; }
+.bank { border-left: 4px solid #2196f3; }
+.crypto { border-left: 4px solid #ff9800; }
+
+.job {
+  display: flex;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.6);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  min-width: 160px;
+  justify-content: flex-start;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  border-left: 4px solid #9c27b0;
+}
+
+.job .icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+#jobGrade {
+  margin-left: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+

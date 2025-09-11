@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tablet Policial</title>
+  <link rel="stylesheet" href="tablet.css" />
+</head>
+<body>
+  <div id="tabletUI" class="hidden">
+    <div class="header">
+      <div class="title">Tablet Policial</div>
+      <button id="closeBtn">Cerrar ✖</button>
+    </div>
+
+    <!-- Búsqueda de ciudadanos -->
+    <div class="search">
+      <input id="searchInput" placeholder="Buscar por nombre o ID..." />
+      <button id="searchBtn">Buscar</button>
+    </div>
+
+    <div class="results" id="resultsBox"></div>
+
+    <!-- Mapa de rastreo -->
+    <div class="map-section">
+      <h3>Mapa de rastreo</h3>
+      <div id="mapCanvas"></div>
+    </div>
+
+    <!-- Registro de sospechoso -->
+    <div class="suspect-section">
+      <h3>Registrar sospechoso</h3>
+      <input id="suspectName" placeholder="Nombre completo" />
+      <input id="suspectID" placeholder="ID ciudadano" />
+      <button id="capturePhoto">📸 Capturar foto</button>
+      <button id="registerSuspect">Registrar sospechoso</button>
+    </div>
+
+    <!-- Multas -->
+    <div class="fine-section">
+      <h3>Emitir multa</h3>
+      <input id="fineTargetID" placeholder="ID ciudadano" />
+      <select id="fineType">
+        <option value="exceso_velocidad">Exceso de velocidad</option>
+        <option value="conducción_peligrosa">Conducción peligrosa</option>
+        <option value="posesión_arma">Posesión ilegal de arma</option>
+        <option value="agresión">Agresión</option>
+      </select>
+      <button id="issueFine">Emitir multa</button>
+    </div>
+
+    <!-- Bodycams activas -->
+    <div class="bodycam-section">
+      <h3>Bodycams activas</h3>
+      <div id="bodycamList"></div>
+    </div>
+
+    <!-- Servicio policial -->
+    <div class="service-section">
+      <h3>Servicio policial</h3>
+      <button id="enterService">Entrar en servicio</button>
+      <button id="exitService">Salir de servicio</button>
+    </div>
+
+    <!-- Contratación -->
+    <div class="recruit-section">
+      <h3>Contratar nuevo policía</h3>
+      <input id="recruitName" placeholder="Nombre del aspirante" />
+      <input id="recruitID" placeholder="ID ciudadano" />
+      <button id="recruitBtn">Contratar como cadete</button>
+    </div>
+  </div>
+
+  <script src="tablet.js"></script>
+</body>
+</html>
+
+

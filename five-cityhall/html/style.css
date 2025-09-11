@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+#jobPanel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#jobPanel h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jobItem {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.jobItem:hover {
+  background: #3a3a3a;
+}
+
+.jobItem span {
+  font-size: 18px;
+  display: block;
+}
+
+.jobItem small {
+  opacity: 0.7;
+}

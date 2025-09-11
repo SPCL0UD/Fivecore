@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Five-Inventory</title>
+  <link rel="stylesheet" href="inventory.css" />
+</head>
+<body>
+  <div id="inventory" class="hidden">
+
+    <!-- CABECERA -->
+    <div class="inv-header">
+      <div class="player-card">
+        <div class="avatar" id="playerAvatar">FC</div>
+        <div class="player-meta">
+          <div class="player-top">
+            <span class="player-name" id="playerName">Nombre</span>
+            <span class="player-job" id="playerJob">Trabajo</span>
+          </div>
+          <div class="money-row">
+            <span class="badge cash">💵 <span id="playerCash">0</span></span>
+            <span class="badge bank">🏦 <span id="playerBank">0</span></span>
+            <span class="badge crypto">🪙 <span id="playerCrypto">0</span></span>
+          </div>
+        </div>
+      </div>
+      <button id="closeBtn" class="close-btn">✖</button>
+    </div>
+
+    <!-- BARRA DE PESO -->
+    <div class="weight-wrap">
+      <div class="weight-bar">
+        <div class="weight-fill" id="weightFill" style="width:0%;"></div>
+      </div>
+      <div class="weight-text" id="weightText">0 / 0 kg</div>
+    </div>
+
+    <!-- PESTAÑAS PRINCIPALES -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-inventory">Inventario</button>
+      <button class="tab-btn" data-tab="tab-vehicle">Vehículo</button>
+      <button class="tab-btn" data-tab="tab-nearby">Cercanos</button>
+      <button class="tab-btn" data-tab="tab-clothes">Ropa</button>
+      <button class="tab-btn" data-tab="tab-utils">Utilidades</button>
+    </div>
+
+    <!-- CONTENIDOS DE PESTAÑAS -->
+    <div class="tabs-content">
+
+      <!-- INVENTARIO -->
+      <div id="tab-inventory" class="tab-panel active">
+        <div class="inv-body">
+          <div class="inv-section">
+            <div class="inv-section-head">
+              <div class="inv-label">Tu inventario</div>
+              <input id="searchPlayer" class="search" type="text" placeholder="Buscar..." />
+            </div>
+            <div class="inv-grid" id="playerInventory"></div>
+          </div>
+
+          <div class="inv-section">
+            <div class="inv-section-head">
+              <div class="inv-label" id="otherLabel">Otro inventario</div>
+              <input id="searchOther" class="search" type="text" placeholder="Buscar..." />
+            </div>
+            <div class="inv-grid" id="otherInventory"></div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <button id="useBtn" class="qa-btn">Usar</button>
+          <button id="dropBtn" class="qa-btn">Tirar</button>
+          <button id="splitBtn" class="qa-btn">Dividir</button>
+        </div>
+      </div>
+
+      <!-- VEHÍCULO -->
+      <div id="tab-vehicle" class="tab-panel">
+        <div class="panel-head">
+          <div class="panel-title">Gestión del vehículo</div>
+          <div class="vehicle-meta">
+            <span class="pill">Placa: <span id="vehPlate">—</span></span>
+            <span class="pill">Asiento: <span id="vehSeat">—</span></span>
+            <span class="pill">Estado: <span id="vehState">Fuera</span></span>
+          </div>
+        </div>
+
+        <div class="veh-controls">
+          <button class="veh-btn" data-door="all">Puertas</button>
+          <button class="veh-btn" id="vehCruise">Cruise</button>
+          <button class="veh-btn" id="vehLimiter">Limitador</button>
+          <button class="veh-btn" id="vehDrift">Drift</button>
+        </div>
+
+        <div class="veh-tabs">
+          <button class="veh-tab-btn active" data-tab="veh-glove">Guantera</button>
+          <button class="veh-tab-btn" data-tab="veh-trunk">Baúl</button>
+        </div>
+
+        <div class="veh-content">
+          <div id="veh-glove" class="veh-panel active">
+            <div class="inv-grid" id="gloveInventory"></div>
+          </div>
+          <div id="veh-trunk" class="veh-panel">
+            <div class="inv-grid" id="trunkInventory"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERCANOS -->
+      <div id="tab-nearby" class="tab-panel">
+        <div class="panel-head">
+          <div class="panel-title">Jugadores cercanos</div>
+          <input id="searchNearby" class="search" type="text" placeholder="Buscar jugador..." />
+        </div>
+
+        <div class="nearby-wrap">
+          <div class="nearby-list" id="nearbyList"></div>
+          <div class="nearby-actions">
+            <div class="inv-grid" id="nearbyInventory"></div>
+            <div class="quick-actions">
+              <button id="giveItemBtn" class="qa-btn">Dar ítem</button>
+              <button id="friskBtn" class="qa-btn">Cachear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROPA -->
+      <div id="tab-clothes" class="tab-panel">
+        <div class="panel-head">
+          <div class="panel-title">Ropa y accesorios</div>
+          <div class="hint">Ponte/quítate prendas rápidamente.</div>
+        </div>
+        <div class="clothes-grid">
+          <button class="cloth-btn" data-cloth="mask">Máscara</button>
+          <button class="cloth-btn" data-cloth="hat">Gorra/Sombrero</button>
+          <button class="cloth-btn" data-cloth="glasses">Gafas</button>
+          <button class="cloth-btn" data-cloth="ears">Accesorios oreja</button>
+          <button class="cloth-btn" data-cloth="top">Torso/Chaqueta</button>
+          <button class="cloth-btn" data-cloth="undershirt">Camiseta</button>
+          <button class="cloth-btn" data-cloth="pants">Pantalones</button>
+          <button class="cloth-btn" data-cloth="shoes">Zapatillas</button>
+          <button class="cloth-btn" data-cloth="bag">Mochila</button>
+          <button class="cloth-btn" data-cloth="watch">Reloj</button>
+          <button class="cloth-btn" data-cloth="bracelet">Pulsera</button>
+          <button class="cloth-btn" data-cloth="vest">Chaleco</button>
+        </div>
+      </div>
+
+      <!-- UTILIDADES -->
+      <div id="tab-utils" class="tab-panel">
+        <div class="panel-head">
+          <div class="panel-title">Utilidades</div>
+          <div class="hint">Atajos y opciones varias (p.ej. Rockstar Editor, gestos).</div>
+        </div>
+        <div class="utils-grid">
+          <button class="util-btn" id="openEditor">Rockstar Editor</button>
+          <button class="util-btn" data-util="handsup">Manos arriba</button>
+          <button class="util-btn" data-util="kneel">Arrodillarse</button>
+          <button class="util-btn" data-util="cancelAnim">Cancelar animación</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOOLTIP -->
+    <div id="itemTooltip" class="tooltip hidden">
+      <h4 id="tooltipName">Nombre</h4>
+      <p id="tooltipDesc">Descripción del ítem</p>
+      <div class="tooltip-row">
+        <span class="tip-chip">Peso: <span id="tooltipWeight">0</span> kg</span>
+        <span class="tip-chip" id="tooltipStack">Stackeable</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="inventory.js"></script>
+</body>
+</html>
+
+
+

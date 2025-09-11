@@ -1,0 +1,12 @@
+body{margin:0;background:transparent;font-family:Inter,sans-serif;color:#f1f1f1}
+.hidden{display:none}
+#monitor{position:absolute;inset:0;background:rgba(15,16,20,.92);display:flex;flex-direction:column;gap:10px;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px}
+.label{opacity:.8;font-size:12px}
+.value{font-size:22px;font-weight:600;margin-top:6px}
+.actions{margin-top:auto;display:flex;justify-content:flex-end}
+button{background:transparent;color:#f1f1f1;border:1px solid rgba(255,255,255,.25);padding:8px 12px;border-radius:8px;cursor:pointer}
+button:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+button:active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6)}
+button:disabled{opacity:.5;cursor:not-allowed}

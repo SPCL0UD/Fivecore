@@ -1,0 +1,42 @@
+:root{
+  --bg: rgba(15,16,20,.96);
+  --panel: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.12);
+  --text: #f1f1f1;
+  --accent:#6aa9ff;
+  --success:#4caf50;
+  --danger:#f44336;
+  --warn:#ffc107;
+}
+body{margin:0;background:transparent;color:var(--text);font-family:'Inter',system-ui,Segoe UI,Roboto,sans-serif}
+.hidden{display:none}
+
+#taxiUI{position:absolute;inset:0;padding:18px;background:var(--bg);backdrop-filter:blur(6px);display:flex;flex-direction:column;gap:12px}
+.tx-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);padding-bottom:8px}
+.title{font-weight:600;font-size:20px}
+.btn{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.ghost{background:transparent}
+.btn.success{border-color:#2e7d32}
+.btn.danger{border-color:#9c1c16}
+
+.tx-stage{border:1px solid var(--border);border-radius:12px;background:var(--panel);padding:12px;display:flex;flex-direction:column;gap:10px}
+.actions{display:flex;gap:8px}
+
+.damage{position:absolute;left:18px;bottom:18px;display:flex;flex-direction:column;gap:6px;width:320px}
+.damage .label{font-size:12px;color:#ddd}
+.damage .bar{height:12px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.06);overflow:hidden}
+.damage .fill{height:100%;width:0%;background:linear-gradient(90deg,var(--warn),var(--danger));transition:width .25s ease}
+
+.toast{position:absolute;right:18px;bottom:18px;background:rgba(0,0,0,.7);border:1px solid var(--border);padding:8px 12px;border-radius:8px}
+.meter{
+  position:absolute; right:18px; top:72px; width:260px;
+  background:rgba(0,0,0,.65); border:1px solid var(--border); border-radius:10px; padding:10px;
+}
+.meter .row{display:flex; justify-content:space-between; margin:4px 0; font-size:14px}
+.meter .row small{opacity:.7; margin-left:6px}
+.meter .total{font-weight:600; font-size:16px}
+.meter .total small{font-size:13px; font-weight:400; opacity:.8; margin-left:8px}
+.meter .row .value{font-size:14px; font-weight:600; color:#fff; margin-left:4px}
+.meter .row .value small{font-size:13px; font-weight:400; opacity:.8; margin-left:8px}
+.meter .row .value .label{font-size:12px; opacity:.7; margin-left:8px}
+.meter .row .value .label small{font-size:11px; opacity:.6; margin-left:6px}
