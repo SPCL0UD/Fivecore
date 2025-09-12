@@ -2,6 +2,7 @@
 description: >-
   Hola nuevamente en esta página veras como usar Fivecore con txadmin mediante
   un témplate récipe.
+icon: bars-progress
 ---
 
 # Uso de txadmin con Fivecore
