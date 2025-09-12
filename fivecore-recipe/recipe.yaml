@@ -1,0 +1,126 @@
+name: FiveCore RP Framework
+description: Plantilla oficial para servidores basados en FiveCore con MongoDB.
+
+tasks:
+  # Descarga del núcleo y trabajos
+  - action: download_github
+    src: https://github.com/SPCL0UD/Fivecore
+    dest: resources/[fivecore]
+
+  - action: download_github
+    src: https://github.com/SPCL0UD/five-policejob
+    dest: resources/[fivecore]/five-policejob
+
+  - action: download_github
+    src: https://github.com/SPCL0UD/five-truckerjob
+    dest: resources/[fivecore]/five-truckerjob
+
+  - action: download_github
+    src: https://github.com/SPCL0UD/five-garbagejob
+    dest: resources/[fivecore]/five-garbagejob
+
+  - action: download_github
+    src: https://github.com/SPCL0UD/five-taxijob
+    dest: resources/[fivecore]/five-taxijob
+
+  - action: download_github
+    src: https://github.com/SPCL0UD/five-ambulancejob
+    dest: resources/[fivecore]/five-ambulancejob
+
+  # Configuración del servidor
+  - action: write_file
+    dest: server.cfg
+    data: |
+      sv_hostname "FiveCore RP Server"
+      sv_maxclients 64
+      endpoint_add_tcp "0.0.0.0:30120"
+      endpoint_add_udp "0.0.0.0:30120"
+
+      ensure fivecore
+      ensure five-policejob
+      ensure five-truckerjob
+      ensure five-garbagejob
+      ensure five-taxijob
+      ensure five-ambulancejob
+
+      # MongoDB
+      set mongodb_uri "mongodb://localhost:27017"
+      set mongodb_database "fivecore"
+
+      # Información del servidor
+      sets locale "es"
+      sets framework "FiveCore"
+      sets server_name "FiveCore RP Server"
+      sets server_version "1.0.0"
+      sets server_description "Servidor roleplay basado en FiveCore"
+      sets server_icon "https://example.com/icon.png"
+      sets server_logo "https://example.com/logo.png"
+      sets server_website "https://example.com"
+      sets server_discord "https://example.com/discord"
+      sets server_github "https://github.com/SPCL0UD/Fivecore"
+
+      # Seguridad y protección
+      sets core_enable_logs "true"
+      sets core_enable_anti_cheat "true"
+      sets core_enable_anti_exploit "true"
+      sets core_enable_anti_spam "true"
+      sets core_enable_anti_troll "true"
+      sets core_enable_anti_hack "true"
+      sets core_enable_anti_bot "true"
+
+      # Activación de trabajos
+      sets job_police_enable "true"
+      sets job_ambulance_enable "true"
+      sets job_trucker_enable "true"
+      sets job_garbage_enable "true"
+      sets job_taxi_enable "true"
+
+      # Salarios por trabajo
+      sets job_police_salary "500"
+      sets job_ambulance_salary "400"
+      sets job_trucker_salary "300"
+      sets job_garbage_salary "200"
+      sets job_taxi_salary "100"
+
+      # Configuración de vehículos y uniformes
+      sets job_police_vehicle_spawn "true"
+      sets job_ambulance_vehicle_spawn "true"
+      sets job_trucker_vehicle_spawn "true"
+      sets job_garbage_vehicle_spawn "true"
+      sets job_taxi_vehicle_spawn "true"
+
+      sets job_police_uniforms "true"
+      sets job_ambulance_uniforms "true"
+      sets job_trucker_uniforms "true"
+      sets job_garbage_uniforms "true"
+      sets job_taxi_uniforms "true"
+
+      # Economía básica
+      sets economy_enable "true"
+      sets economy_starting_money "1000"
+      sets economy_paycheck_interval "15"
+      sets economy_paycheck_amount "500"
+      sets economy_black_money "true"
+
+      # Sistema de vehículos
+      sets vehicles_enable "true"
+      sets vehicles_fuel_system "true"
+      sets vehicles_damage_system "true"
+      sets vehicles_garages "true"
+      sets vehicles_keys "true"
+
+      # Sistema de armas
+      sets weapons_enable "true"
+      sets weapons_recoil_system "true"
+      sets weapons_ammo_system "true"
+      sets weapons_attachments "true"
+
+      # Administración
+      sets admin_enable "true"
+      sets admin_permissions "true"
+
+      # Logs y webhooks
+      sets logs_enable "true"
+      sets logs_webhook "https://example.com/webhook"
+
+      
